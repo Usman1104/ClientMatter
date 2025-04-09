@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="My Office Add-in"/>
+  <DisplayName DefaultValue="Client Matter"/>
   <Description DefaultValue="A template to get started."/>
   <IconUrl DefaultValue="https://www.contoso.com/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://www.contoso.com/assets/icon-128.png"/>
@@ -28,7 +28,7 @@
       </DesktopSettings>
     </Form>
   </FormSettings>
-  <Permissions>ReadWriteItem</Permissions>
+  <Permissions>ReadWriteMailbox</Permissions>
   <Rule xsi:type="RuleCollection" Mode="Or">
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
   </Rule>
@@ -43,7 +43,7 @@
         <Host xsi:type="MailHost">
           <DesktopFormFactor>
             <FunctionFile resid="Commands.Url"/>
-            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgComposeGroup">
                   <Label resid="GroupLabel"/>
@@ -62,21 +62,7 @@
                       <SourceLocation resid="Taskpane.Url"/>
                     </Action>
                   </Control>
-                  <Control xsi:type="Button" id="ActionButton">
-                    <Label resid="ActionButton.Label"/>
-                    <Supertip>
-                      <Title resid="ActionButton.Label"/>
-                      <Description resid="ActionButton.Tooltip"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
-                      <bt:Image size="32" resid="Icon.32x32"/>
-                      <bt:Image size="80" resid="Icon.80x80"/>
-                    </Icon>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>action</FunctionName>
-                    </Action>
-                  </Control>
+              
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
@@ -94,13 +80,11 @@
           <bt:Url id="Taskpane.Url" DefaultValue="https://www.contoso.com/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="GroupLabel" DefaultValue="Contoso Add-in"/>
-          <bt:String id="TaskpaneButton.Label" DefaultValue="Show Task Pane"/>
-          <bt:String id="ActionButton.Label" DefaultValue="Perform an action"/>
+          <bt:String id="GroupLabel" DefaultValue="Client Matter"/>
+          <bt:String id="TaskpaneButton.Label" DefaultValue="Client Matter"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Opens a Task Pane that enables users to insert text."/>
-          <bt:String id="ActionButton.Tooltip" DefaultValue="Perform an action when clicked."/>
+          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Opens a Task Pane that enables users to create matters."/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
